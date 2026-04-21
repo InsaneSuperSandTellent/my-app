@@ -2,7 +2,7 @@
 - [x] 001: Project scaffolding | Create `requirements.txt` (pdfplumber, requests, anthropic, python-dotenv), `invoices/` and `logs/` dirs, and `.gitignore` excluding `.env.local` and `logs/`.
 - [x] 002: Environment config | Create `src/config.py` that loads all five env vars (ANTHROPIC_API_KEY, SNIPEIT_URL, SNIPEIT_API_KEY, INVOICES_FOLDER, LOG_FILE) and raises on any missing.
 - [x] 003: Structured logger | Create `src/logger.py` that writes `[TIMESTAMP] [STATUS] filename — detail` lines to `./logs/pipeline.log` and mirrors output to console.
-- [ ] 004: Logs directory bootstrap | Extend `src/logger.py` to auto-create `./logs/` on first run; catch disk-write errors and fall back to console-only without crashing.
+- [x] 004: Logs directory bootstrap | Extend `src/logger.py` to auto-create `./logs/` on first run; catch disk-write errors and fall back to console-only without crashing.
 - [ ] 005: PDF text extraction | Create `src/pdf_extractor.py` using `pdfplumber`; return `None` for empty/whitespace-only text; catch and surface parse errors without raising.
 - [ ] 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
 - [ ] 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
