@@ -13,7 +13,7 @@
 - [x] 012: Snipe-IT asset lookup | Create `src/snipeit_client.py` with `lookup_by_serial(serial: str)` using `GET /api/v1/hardware?serial=`; return the single asset dict, or raise distinct exceptions for zero, many, and HTTP/network errors.
 - [x] 013: Snipe-IT asset update | Add `update_purchase_cost(asset_id: int, amount: float)` in `src/snipeit_client.py` using `PATCH /api/v1/hardware/{id}`; detect error payloads in a 200 body and raise on failure.
 - [x] 014: Invoice processor | Create `src/pipeline.py` with `process_invoice(filepath: Path)` that chains extractor → amount → serial → lookup → update and logs `OK`, `SKIPPED`, `UNRESOLVED`, `AMBIGUOUS`, or `ERROR` for every outcome.
-- [ ] 015: Main entry point | Create `main.py` that scans `INVOICES_FOLDER` for `.pdf` files, skips already-processed ones, calls `process_invoice()` per file, and catches any unhandled exception with `exit(1)`.
+- [x] 015: Main entry point | Create `main.py` that scans `INVOICES_FOLDER` for `.pdf` files, skips already-processed ones, calls `process_invoice()` per file, and catches any unhandled exception with `exit(1)`.
 - [ ] 016: Empty folder handling | Ensure `main.py` logs `"no files to process"` and exits cleanly (code 0) when `./invoices` exists but contains no `.pdf` files.
 - [ ] 017: .env.example | Create `.env.example` documenting all five required variables with inline descriptions; no real values.
 - [ ] 018: Amount extractor tests | Create `tests/test_amount_extractor.py` with sample strings for both regex formats, comma-decimal normalization, and largest-amount selection.
