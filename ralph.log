@@ -36,3 +36,5 @@
 2026-04-21 14:04:01 📌 Task 18: 018: Amount extractor tests | Create `tests/test_amount_extractor.py` with sample strings for both regex formats, comma-decimal normalization, and largest-amount selection.
 2026-04-21 14:05:15 ✅ Task 18 done in 73s: 018: Amount extractor tests | Create `tests/test_amount_extractor.py` with sample strings for both regex formats, comma-decimal normalization, and largest-amount selection.
 2026-04-21 14:05:18 📌 Task 19: 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
+2026-04-21 14:08:53 ✅ Task 19 done in 214s: 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
+2026-04-21 14:08:56 📌 Task 20: 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.

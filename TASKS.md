@@ -18,7 +18,7 @@
 - [x] 017: .env.example | Create `.env.example` documenting all five required variables with inline descriptions; no real values.
 - [x] 018: Amount extractor tests | Create `tests/test_amount_extractor.py` with sample strings for both regex formats, comma-decimal normalization, and largest-amount selection.
 - [x] 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
-- [ ] 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
+- [x] 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
 - [ ] 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
 - [ ] 022: Model constant deduplication audit | Verify `claude-sonnet-4-20250514` appears in exactly one place (`src/claude_fallback.py`); grep all `src/` files and fix any duplicates.
 - [ ] 023: Error handling audit | Review all `src/*.py` files to confirm no bare `except:` clauses, every error path uses the structured logger, and no exception silently swallows failures.
