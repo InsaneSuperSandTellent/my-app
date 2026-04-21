@@ -6,3 +6,5 @@
 2026-04-21 13:57:00 📌 Task 3: 003: Structured logger | Create `src/logger.py` that writes `[TIMESTAMP] [STATUS] filename — detail` lines to `./logs/pipeline.log` and mirrors output to console.
 2026-04-21 13:57:23 ✅ Task 3 done in 22s: 003: Structured logger | Create `src/logger.py` that writes `[TIMESTAMP] [STATUS] filename — detail` lines to `./logs/pipeline.log` and mirrors output to console.
 2026-04-21 13:57:26 📌 Task 4: 004: Logs directory bootstrap | Extend `src/logger.py` to auto-create `./logs/` on first run; catch disk-write errors and fall back to console-only without crashing.
+2026-04-21 13:57:44 ✅ Task 4 done in 16s: 004: Logs directory bootstrap | Extend `src/logger.py` to auto-create `./logs/` on first run; catch disk-write errors and fall back to console-only without crashing.
+2026-04-21 13:57:46 📌 Task 5: 005: PDF text extraction | Create `src/pdf_extractor.py` using `pdfplumber`; return `None` for empty/whitespace-only text; catch and surface parse errors without raising.
