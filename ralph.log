@@ -30,3 +30,5 @@
 2026-04-21 14:02:47 📌 Task 15: 015: Main entry point | Create `main.py` that scans `INVOICES_FOLDER` for `.pdf` files, skips already-processed ones, calls `process_invoice()` per file, and catches any unhandled exception with `exit(1)`.
 2026-04-21 14:03:05 ✅ Task 15 done in 17s: 015: Main entry point | Create `main.py` that scans `INVOICES_FOLDER` for `.pdf` files, skips already-processed ones, calls `process_invoice()` per file, and catches any unhandled exception with `exit(1)`.
 2026-04-21 14:03:08 📌 Task 16: 016: Empty folder handling | Ensure `main.py` logs `"no files to process"` and exits cleanly (code 0) when `./invoices` exists but contains no `.pdf` files.
+2026-04-21 14:03:32 ✅ Task 16 done in 23s: 016: Empty folder handling | Ensure `main.py` logs `"no files to process"` and exits cleanly (code 0) when `./invoices` exists but contains no `.pdf` files.
+2026-04-21 14:03:35 📌 Task 17: 017: .env.example | Create `.env.example` documenting all five required variables with inline descriptions; no real values.
