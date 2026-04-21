@@ -1,0 +1,2 @@
+2026-04-21 13:56:00 🚀 Ralph starting
+2026-04-21 13:56:00 📌 Task 1: 001: Project scaffolding | Create `requirements.txt` (pdfplumber, requests, anthropic, python-dotenv), `invoices/` and `logs/` dirs, and `.gitignore` excluding `.env.local` and `logs/`.
