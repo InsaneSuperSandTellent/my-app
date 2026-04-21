@@ -17,7 +17,7 @@
 - [x] 016: Empty folder handling | Ensure `main.py` logs `"no files to process"` and exits cleanly (code 0) when `./invoices` exists but contains no `.pdf` files.
 - [x] 017: .env.example | Create `.env.example` documenting all five required variables with inline descriptions; no real values.
 - [x] 018: Amount extractor tests | Create `tests/test_amount_extractor.py` with sample strings for both regex formats, comma-decimal normalization, and largest-amount selection.
-- [ ] 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
+- [x] 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
 - [ ] 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
 - [ ] 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
 - [ ] 022: Model constant deduplication audit | Verify `claude-sonnet-4-20250514` appears in exactly one place (`src/claude_fallback.py`); grep all `src/` files and fix any duplicates.
