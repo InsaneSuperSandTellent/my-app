@@ -4,7 +4,7 @@
 - [x] 003: Structured logger | Create `src/logger.py` that writes `[TIMESTAMP] [STATUS] filename — detail` lines to `./logs/pipeline.log` and mirrors output to console.
 - [x] 004: Logs directory bootstrap | Extend `src/logger.py` to auto-create `./logs/` on first run; catch disk-write errors and fall back to console-only without crashing.
 - [x] 005: PDF text extraction | Create `src/pdf_extractor.py` using `pdfplumber`; return `None` for empty/whitespace-only text; catch and surface parse errors without raising.
-- [ ] 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
+- [x] 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
 - [ ] 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
 - [ ] 008: Amount normalization | Add `normalize_amount(raw: str) -> float` in `src/amount_extractor.py` to handle comma-decimal separators and `select_largest(amounts)` when multiple matches exist.
 - [ ] 009: Amount extraction orchestrator | Add `extract_amount(text: str) -> tuple[float | None, str]` in `src/amount_extractor.py` that tries regex first and returns `(amount, method)` where method is `"regex"` or `"claude-api"`.
