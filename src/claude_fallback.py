@@ -1,6 +1,7 @@
 import json
 import anthropic
 from src.config import ANTHROPIC_API_KEY
+from src.logger import log_error
 
 MODEL = "claude-sonnet-4-20250514"
 
@@ -27,9 +28,12 @@ def extract_with_claude(text: str) -> float | None:
         if value is None:
             return None
         return float(value)
-    except (json.JSONDecodeError, KeyError, TypeError, ValueError):
+    except (json.JSONDecodeError, KeyError, TypeError, ValueError) as exc:
+        log_error("claude_fallback", f"malformed response from Claude API: {exc}")
         return None
     except anthropic.APITimeoutError:
+        log_error("claude_fallback", "Claude API request timed out")
         return None
     except anthropic.RateLimitError:
+        log_error("claude_fallback", "Claude API rate limit exceeded")
         return None

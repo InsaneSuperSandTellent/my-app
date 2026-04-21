@@ -42,3 +42,5 @@
 2026-04-21 14:09:39 📌 Task 21: 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
 2026-04-21 14:11:24 ✅ Task 21 done in 104s: 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
 2026-04-21 14:11:27 📌 Task 22: 022: Model constant deduplication audit | Verify `claude-sonnet-4-20250514` appears in exactly one place (`src/claude_fallback.py`); grep all `src/` files and fix any duplicates.
+2026-04-21 14:11:40 ✅ Task 22 done in 12s: 022: Model constant deduplication audit | Verify `claude-sonnet-4-20250514` appears in exactly one place (`src/claude_fallback.py`); grep all `src/` files and fix any duplicates.
+2026-04-21 14:11:43 📌 Task 23: 023: Error handling audit | Review all `src/*.py` files to confirm no bare `except:` clauses, every error path uses the structured logger, and no exception silently swallows failures.

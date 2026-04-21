@@ -21,5 +21,5 @@
 - [x] 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
 - [x] 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
 - [x] 022: Model constant deduplication audit | Verify `claude-sonnet-4-20250514` appears in exactly one place (`src/claude_fallback.py`); grep all `src/` files and fix any duplicates.
-- [ ] 023: Error handling audit | Review all `src/*.py` files to confirm no bare `except:` clauses, every error path uses the structured logger, and no exception silently swallows failures.
+- [x] 023: Error handling audit | Review all `src/*.py` files to confirm no bare `except:` clauses, every error path uses the structured logger, and no exception silently swallows failures.
 - [ ] 024: Syntax and import verification | Run `python -m py_compile` on every `src/*.py` and `main.py`; confirm `npm run build` passes with zero errors in the Next.js shell project.

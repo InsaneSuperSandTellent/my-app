@@ -18,8 +18,8 @@ try:
     _file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
     _file_handler.setFormatter(_formatter)
     _logger.addHandler(_file_handler)
-except OSError:
-    pass
+except OSError as exc:
+    _logger.warning(_format("WARNING", "logger", f"Could not open log file {LOG_FILE!r}: {exc}; falling back to console only"))
 
 
 def _format(status: str, filename: str, detail: str) -> str:
