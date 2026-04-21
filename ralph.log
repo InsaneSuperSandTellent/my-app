@@ -38,3 +38,5 @@
 2026-04-21 14:05:18 📌 Task 19: 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
 2026-04-21 14:08:53 ✅ Task 19 done in 214s: 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
 2026-04-21 14:08:56 📌 Task 20: 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
+2026-04-21 14:09:37 ✅ Task 20 done in 39s: 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
+2026-04-21 14:09:39 📌 Task 21: 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
