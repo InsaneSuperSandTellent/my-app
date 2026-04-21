@@ -12,3 +12,5 @@
 2026-04-21 13:58:13 📌 Task 6: 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
 2026-04-21 13:58:30 ✅ Task 6 done in 15s: 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
 2026-04-21 13:58:32 📌 Task 7: 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
+2026-04-21 13:59:23 ✅ Task 7 done in 49s: 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
+2026-04-21 13:59:25 📌 Task 8: 008: Amount normalization | Add `normalize_amount(raw: str) -> float` in `src/amount_extractor.py` to handle comma-decimal separators and `select_largest(amounts)` when multiple matches exist.
