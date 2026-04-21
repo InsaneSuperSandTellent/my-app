@@ -9,6 +9,10 @@ from src.logger import log_error
 try:
     folder = Path(INVOICES_FOLDER)
     pdf_files = sorted(folder.glob("*.pdf"))
+    if not pdf_files:
+        log_ok("main", "no files to process")
+        sys.exit(0)
+
     processed = load_processed()
 
     for pdf in pdf_files:
