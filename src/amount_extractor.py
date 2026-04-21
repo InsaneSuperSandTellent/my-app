@@ -26,3 +26,12 @@ INVOICE_FORMAT_B = re.compile(
     r'(?:total|amount\s+due|subtotal)[:\s]+\$?(\d[\d,]*\.\d{2})',
     re.IGNORECASE,
 )
+
+
+def extract_amount(text: str) -> tuple[float | None, str]:
+    matches = INVOICE_FORMAT_A.findall(text) + INVOICE_FORMAT_B.findall(text)
+    if matches:
+        amounts = [normalize_amount(m) for m in matches]
+        return (select_largest(amounts), "regex")
+    from src.claude_fallback import extract_with_claude
+    return (extract_with_claude(text), "claude-api")

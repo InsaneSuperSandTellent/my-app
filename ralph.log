@@ -14,3 +14,5 @@
 2026-04-21 13:58:32 📌 Task 7: 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
 2026-04-21 13:59:23 ✅ Task 7 done in 49s: 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
 2026-04-21 13:59:25 📌 Task 8: 008: Amount normalization | Add `normalize_amount(raw: str) -> float` in `src/amount_extractor.py` to handle comma-decimal separators and `select_largest(amounts)` when multiple matches exist.
+2026-04-21 13:59:47 ✅ Task 8 done in 20s: 008: Amount normalization | Add `normalize_amount(raw: str) -> float` in `src/amount_extractor.py` to handle comma-decimal separators and `select_largest(amounts)` when multiple matches exist.
+2026-04-21 13:59:49 📌 Task 9: 009: Amount extraction orchestrator | Add `extract_amount(text: str) -> tuple[float | None, str]` in `src/amount_extractor.py` that tries regex first and returns `(amount, method)` where method is `"regex"` or `"claude-api"`.

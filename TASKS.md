@@ -7,7 +7,7 @@
 - [x] 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
 - [x] 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
 - [x] 008: Amount normalization | Add `normalize_amount(raw: str) -> float` in `src/amount_extractor.py` to handle comma-decimal separators and `select_largest(amounts)` when multiple matches exist.
-- [ ] 009: Amount extraction orchestrator | Add `extract_amount(text: str) -> tuple[float | None, str]` in `src/amount_extractor.py` that tries regex first and returns `(amount, method)` where method is `"regex"` or `"claude-api"`.
+- [x] 009: Amount extraction orchestrator | Add `extract_amount(text: str) -> tuple[float | None, str]` in `src/amount_extractor.py` that tries regex first and returns `(amount, method)` where method is `"regex"` or `"claude-api"`.
 - [ ] 010: Claude API fallback | Create `src/claude_fallback.py` calling `claude-sonnet-4-20250514` (defined as a single constant) with a prompt requesting `{"amount": number | null}`; handle malformed JSON, timeout, and rate-limit errors by returning `None`.
 - [ ] 011: Serial number extraction | Create `src/serial_extractor.py` with a named regex constant to extract the serial number from invoice text; return `None` if not found.
 - [ ] 012: Snipe-IT asset lookup | Create `src/snipeit_client.py` with `lookup_by_serial(serial: str)` using `GET /api/v1/hardware?serial=`; return the single asset dict, or raise distinct exceptions for zero, many, and HTTP/network errors.
