@@ -1,0 +1,25 @@
+# Task List
+- [ ] 001: Project scaffolding | Create `requirements.txt` (pdfplumber, requests, anthropic, python-dotenv), `invoices/` and `logs/` dirs, and `.gitignore` excluding `.env.local` and `logs/`.
+- [ ] 002: Environment config | Create `src/config.py` that loads all five env vars (ANTHROPIC_API_KEY, SNIPEIT_URL, SNIPEIT_API_KEY, INVOICES_FOLDER, LOG_FILE) and raises on any missing.
+- [ ] 003: Structured logger | Create `src/logger.py` that writes `[TIMESTAMP] [STATUS] filename — detail` lines to `./logs/pipeline.log` and mirrors output to console.
+- [ ] 004: Logs directory bootstrap | Extend `src/logger.py` to auto-create `./logs/` on first run; catch disk-write errors and fall back to console-only without crashing.
+- [ ] 005: PDF text extraction | Create `src/pdf_extractor.py` using `pdfplumber`; return `None` for empty/whitespace-only text; catch and surface parse errors without raising.
+- [ ] 006: Processed files tracker | Create `src/processed_tracker.py` that loads and saves `./logs/processed.json` (a JSON array of filenames) to prevent re-processing.
+- [ ] 007: Invoice regex constants | Create `src/amount_extractor.py` with two named constants `INVOICE_FORMAT_A` and `INVOICE_FORMAT_B` covering the two known invoice amount patterns.
+- [ ] 008: Amount normalization | Add `normalize_amount(raw: str) -> float` in `src/amount_extractor.py` to handle comma-decimal separators and `select_largest(amounts)` when multiple matches exist.
+- [ ] 009: Amount extraction orchestrator | Add `extract_amount(text: str) -> tuple[float | None, str]` in `src/amount_extractor.py` that tries regex first and returns `(amount, method)` where method is `"regex"` or `"claude-api"`.
+- [ ] 010: Claude API fallback | Create `src/claude_fallback.py` calling `claude-sonnet-4-20250514` (defined as a single constant) with a prompt requesting `{"amount": number | null}`; handle malformed JSON, timeout, and rate-limit errors by returning `None`.
+- [ ] 011: Serial number extraction | Create `src/serial_extractor.py` with a named regex constant to extract the serial number from invoice text; return `None` if not found.
+- [ ] 012: Snipe-IT asset lookup | Create `src/snipeit_client.py` with `lookup_by_serial(serial: str)` using `GET /api/v1/hardware?serial=`; return the single asset dict, or raise distinct exceptions for zero, many, and HTTP/network errors.
+- [ ] 013: Snipe-IT asset update | Add `update_purchase_cost(asset_id: int, amount: float)` in `src/snipeit_client.py` using `PATCH /api/v1/hardware/{id}`; detect error payloads in a 200 body and raise on failure.
+- [ ] 014: Invoice processor | Create `src/pipeline.py` with `process_invoice(filepath: Path)` that chains extractor → amount → serial → lookup → update and logs `OK`, `SKIPPED`, `UNRESOLVED`, `AMBIGUOUS`, or `ERROR` for every outcome.
+- [ ] 015: Main entry point | Create `main.py` that scans `INVOICES_FOLDER` for `.pdf` files, skips already-processed ones, calls `process_invoice()` per file, and catches any unhandled exception with `exit(1)`.
+- [ ] 016: Empty folder handling | Ensure `main.py` logs `"no files to process"` and exits cleanly (code 0) when `./invoices` exists but contains no `.pdf` files.
+- [ ] 017: .env.example | Create `.env.example` documenting all five required variables with inline descriptions; no real values.
+- [ ] 018: Amount extractor tests | Create `tests/test_amount_extractor.py` with sample strings for both regex formats, comma-decimal normalization, and largest-amount selection.
+- [ ] 019: Claude fallback tests | Create `tests/test_claude_fallback.py` using `unittest.mock` to cover: valid JSON, `null` amount, malformed JSON, and API timeout.
+- [ ] 020: Snipe-IT client tests | Create `tests/test_snipeit_client.py` with mocked `requests` responses for: single asset, zero assets, multiple assets, HTTP error, and update success/failure.
+- [ ] 021: Pipeline integration tests | Create `tests/test_pipeline.py` exercising the full `process_invoice()` flow with a mock PDF, mock extractor, and mock Snipe-IT client for the happy path and key failure modes.
+- [ ] 022: Model constant deduplication audit | Verify `claude-sonnet-4-20250514` appears in exactly one place (`src/claude_fallback.py`); grep all `src/` files and fix any duplicates.
+- [ ] 023: Error handling audit | Review all `src/*.py` files to confirm no bare `except:` clauses, every error path uses the structured logger, and no exception silently swallows failures.
+- [ ] 024: Syntax and import verification | Run `python -m py_compile` on every `src/*.py` and `main.py`; confirm `npm run build` passes with zero errors in the Next.js shell project.
