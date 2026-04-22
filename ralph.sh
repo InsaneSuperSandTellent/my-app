@@ -1,5 +1,5 @@
 #!/bin/bash
-# ralph.sh — Master orchestrator
+# ralph.sh — Master orchestrator (Python version)
 # Stop:   Ctrl+C
 # Resume: ./ralph.sh (picks up from first unchecked task)
 
@@ -15,12 +15,12 @@ notify() {
   osascript -e "display notification \"$1\" with title \"Ralph 🤖\"" 2>/dev/null || true
 }
 
-# ── Timestamped log ───────────────────────────────────────────────────────
+# ── Timestamped log ──────────────────────────────────────────────────────
 log() {
   echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$LOG_FILE"
 }
 
-# ── Pre-flight checks ─────────────────────────────────────────────────────
+# ── Pre-flight checks ────────────────────────────────────────────────────
 if [ ! -f TASKS.md ]; then
   echo "❌ No TASKS.md found. Run ./plan.sh first."; exit 1
 fi
@@ -29,13 +29,17 @@ if [ ! -f ralph-task.sh ]; then
   echo "❌ ralph-task.sh not found."; exit 1
 fi
 
-# Require a clean build baseline before starting
-if ! npm run build > /dev/null 2>&1; then
-  echo "❌ Project does not build cleanly. Fix errors first: npm run build"
-  exit 1
+# Require a clean syntax baseline before starting
+# Only check if any .py files exist yet (first run of Ralph will have none)
+if ls *.py src/*.py 2>/dev/null | grep -q .; then
+  if ! python3 -m py_compile $(find . -name "*.py" -not -path "./venv/*" -not -path "./.venv/*") 2>/dev/null; then
+    echo "❌ Project has Python syntax errors. Fix them first:"
+    echo "   python3 -m py_compile \$(find . -name '*.py')"
+    exit 1
+  fi
 fi
 
-# ── Start ─────────────────────────────────────────────────────────────────
+# ── Start ────────────────────────────────────────────────────────────────
 START_TIME=$(date +%s)
 TASK_COUNT=0
 
@@ -43,7 +47,7 @@ echo ""
 log "🚀 Ralph starting"
 notify "Ralph started 🚀"
 
-# ── Main loop ─────────────────────────────────────────────────────────────
+# ── Main loop ────────────────────────────────────────────────────────────
 while true; do
   NEXT=$(grep -m 1 "^- \[ \]" TASKS.md)
 
